@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuestro rincón</title>
+  <title>DailyWord</title>
   <meta name="description" content="Un rincón romántico donde guardar y publicar frases, poemas y letras cada día." />
-  <meta property="og:title" content="Nuestro rincón" />
+  <meta property="og:title" content="DailyWord" />
   <meta property="og:description" content="Un rincón romántico donde guardar y publicar frases, poemas y letras cada día." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,16 +15,14 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container py-2">
-      <a class="navbar-brand" href="#inicio" aria-label="Ir al inicio">
+      <a class="navbar-brand" href="#hoy">
         <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
           <path d="M12 20s-7-4.35-9.2-8.48C1.02 8.2 2.76 4.5 6.35 4.5c2.08 0 3.54 1.17 4.33 2.52.79-1.35 2.25-2.52 4.33-2.52 3.59 0 5.33 3.7 3.55 7.02C19 15.65 12 20 12 20Z"/>
           <path d="M7.5 12.2c1 .2 1.65-.2 2.15-1.15.45 1.45 1.2 2.2 2.35 2.28 1.02.08 1.78-.38 2.55-1.56.38.62.88.93 1.45.93"/>
         </svg>
-        Nuestro rincón
+        DailyWord
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir navegación">
         <span class="navbar-toggler-icon"></span>
@@ -33,36 +31,35 @@
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
           <li class="nav-item"><a class="nav-link" href="#hoy">Frase del día</a></li>
           <li class="nav-item"><a class="nav-link" href="#archivo">Archivo</a></li>
-          <li class="nav-item"><a class="nav-link" href="#admin">Actualizar</a></li>
-          <li class="nav-item ms-lg-2"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema"><span aria-hidden="true">☾</span></button></li>
+          <li class="nav-item ms-lg-2">
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema">
+              <span aria-hidden="true">☾</span>
+            </button>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <main id="contenido">
     <section class="section-pad" id="hoy">
       <div class="container">
-        <div class="row g-4 align-items-center">
-            <div class="sticky-info">
-              <p class="eyebrow">Nota  de hoy</p>
+        <div class="row g-4 align-items-start">
+            <div>
+              <p class="eyebrow">Lectura de hoy</p>
+            </div>
           </div>
+
           <div class="col-lg-8">
-            <article class="entry-card mb-4" aria-labelledby="fraseTitulo">
-              <div class="entry-date" id="featuredDate">9 de abril de 2026</div>
-              <h2 id="fraseTitulo" class="mb-3">Frase del día</h2>
-              <p class="entry-text" id="featuredText">Eres esa casualidad bonita que convirtió los días normales en algo que siempre quiero recordar.</p>
+            <article class="card-romantic mb-4">
+              <div class="entry-date" id="featuredDate"></div>
+              <h2 class="mb-3">Frase del día</h2>
+              <p class="entry-text" id="featuredText"></p>
               <div class="d-flex flex-wrap gap-2 align-items-center">
-                <span class="entry-tag" id="featuredType">Frase</span>
-                <span class="helper" id="featuredSignature">Publicado por ti</span>
+                <span class="entry-tag" id="featuredType"></span>
+                <span class="helper" id="featuredSignature"></span>
               </div>
             </article>
-            <div class="preview-card">
-              <h3 class="mb-3">Cómo funciona</h3>
-              <p class="section-note mb-3">En la sección “Actualizar” escribes el texto y pulsas el botón. La página te genera automáticamente el bloque JSON que debes pegar dentro del archivo. Luego haces commit y GitHub Pages publicará la nueva versión.</p>
-              <div class="status-box">
-                Consejo práctico: si quieres que sea todavía más fácil, puedes editar solo el archivo <strong>notes.json</strong>. El resto del diseño no hace falta tocarlo.
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -70,6 +67,7 @@
 
     <section class="section-pad pt-0" id="archivo">
       <div class="container">
+        <p class="eyebrow">Archivo de recuerdos</p>
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
           <div>
             <h2>Mensajes anteriores</h2>
@@ -78,8 +76,6 @@
         <div class="timeline" id="timeline"></div>
       </div>
     </section>
-
-    
   </main>
 
   <footer class="footer">
@@ -88,46 +84,55 @@
       <span>Pensado para GitHub Pages y edición manual sencilla.</span>
     </div>
   </footer>
-  <script src="./notes.json"></script>
-  <script>
-    let notes = [];
 
+  <script src="./notes.js"></script>
+  <script>
     const timeline = document.getElementById('timeline');
     const featuredDate = document.getElementById('featuredDate');
     const featuredText = document.getElementById('featuredText');
     const featuredType = document.getElementById('featuredType');
     const featuredSignature = document.getElementById('featuredSignature');
-    const heroQuote = document.getElementById('heroQuote');
-    const heroAuthor = document.getElementById('heroAuthor');
 
     function formatSpanishDate(value) {
       const date = new Date(value + 'T12:00:00');
-      return new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+      return new Intl.DateTimeFormat('es-ES', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(date);
     }
 
     function escapeHtml(text) {
-      return text.replace(/[&<>\"]/g, (match) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[match]));
+      return text.replace(/[&<>\\"]/g, (match) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;'
+      }[match]));
     }
 
     function renderFeatured() {
-      if (!notes.length) return;
+      if (!notes || !notes.length) return;
       const latest = notes[0];
       featuredDate.textContent = formatSpanishDate(latest.date);
       featuredText.textContent = latest.text;
       featuredType.textContent = latest.type;
       featuredSignature.textContent = latest.signature || 'Publicado por ti';
-      heroQuote.textContent = latest.text;
-      heroAuthor.textContent = '— ' + (latest.signature || 'Para miamor, con cariño');
     }
 
     function renderTimeline() {
-      if (!notes.length) {
-        timeline.innerHTML = '<article class="entry-card"><h3>Aún no hay entradas</h3><p class="section-note mb-0">Añade tu primera frase en <code>notes.json</code> y aparecerá aquí.</p></article>';
+      if (!notes || !notes.length) {
+        timeline.innerHTML = `
+          <article class="card-romantic">
+            <h3>Aún no hay entradas</h3>
+            <p class="section-note mb-0">Añade tu primera frase en <code>notes.js</code>.</p>
+          </article>
+        `;
         return;
       }
 
       timeline.innerHTML = notes.map((note, index) => `
-        <article class="entry-card">
+        <article class="card-romantic">
           <div class="entry-date">${formatSpanishDate(note.date)}</div>
           <h3>${index === 0 ? 'Entrada destacada' : note.type}</h3>
           <p class="entry-text">${escapeHtml(note.text)}</p>
@@ -139,109 +144,22 @@
       `).join('');
     }
 
-    async function loadNotes() {
-      try {
-        const response = await fetch('./notes.json');
-        notes = await response.json();
-        renderFeatured();
-        renderTimeline();
-      } catch (error) {
-        timeline.innerHTML = '<article class="entry-card"><h3>No se pudo cargar notes.json</h3><p class="section-note mb-0">Comprueba que el archivo esté en la misma carpeta que index.html.</p></article>';
-      }
-    }
-
-    loadNotes();
+    renderFeatured();
+    renderTimeline();
 
     const htmlRoot = document.documentElement;
     const toggle = document.querySelector('[data-theme-toggle]');
     let currentTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
     htmlRoot.setAttribute('data-theme', currentTheme);
     toggle.innerHTML = currentTheme === 'dark' ? '☀' : '☾';
+
     toggle.addEventListener('click', () => {
       currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
       htmlRoot.setAttribute('data-theme', currentTheme);
       toggle.innerHTML = currentTheme === 'dark' ? '☀' : '☾';
       toggle.setAttribute('aria-label', currentTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
     });
-
-    document.querySelectorAll('.admin-tab').forEach((tab) => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.admin-tab').forEach((btn) => btn.classList.remove('active'));
-        document.querySelectorAll('.admin-panel').forEach((panel) => panel.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
-      });
-    });
-
-    const form = document.getElementById('noteForm');
-    const noteType = document.getElementById('noteType');
-    const noteDate = document.getElementById('noteDate');
-    const noteText = document.getElementById('noteText');
-    const noteSignature = document.getElementById('noteSignature');
-    const previewDate = document.getElementById('previewDate');
-    const previewText = document.getElementById('previewText');
-    const previewType = document.getElementById('previewType');
-    const previewSignature = document.getElementById('previewSignature');
-    const jsonOutput = document.getElementById('jsonOutput');
-    const saveHint = document.getElementById('saveHint');
-    let latestGenerated = null;
-
-    function updatePreview(data) {
-      previewDate.textContent = data.date ? formatSpanishDate(data.date) : 'Sin fecha';
-      previewText.textContent = data.text || 'Aquí verás la previsualización antes de copiarla.';
-      previewType.textContent = data.type || 'Frase';
-      previewSignature.textContent = data.signature || 'Sin firma';
-    }
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const entry = {
-        date: noteDate.value,
-        type: noteType.value,
-        text: noteText.value.trim(),
-        signature: noteSignature.value.trim() || 'Publicado por ti'
-      };
-      latestGenerated = entry;
-      updatePreview(entry);
-      jsonOutput.textContent = JSON.stringify(entry, null, 2) + ',';
-      saveHint.textContent = 'Copia el objeto o el JSON completo y reemplázalo dentro de notes.json. Después haz commit y push a GitHub.';
-      document.querySelector('[data-tab="json"]').click();
-    });
-
-    document.getElementById('loadSample').addEventListener('click', () => {
-      noteType.value = 'Carta';
-      noteDate.value = new Date().toISOString().slice(0, 10);
-      noteText.value = 'Gracias por hacerme sentir en casa incluso en los días más difíciles. Quiero seguir escribiendo contigo esta historia tan bonita.';
-      noteSignature.value = 'Con todo mi amor';
-      updatePreview({ date: noteDate.value, type: noteType.value, text: noteText.value, signature: noteSignature.value });
-    });
-
-    async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch {
-        const area = document.createElement('textarea');
-        area.value = text;
-        document.body.appendChild(area);
-        area.select();
-        document.execCommand('copy');
-        area.remove();
-      }
-    }
-
-    document.getElementById('copyJson').addEventListener('click', () => {
-      copyText(jsonOutput.textContent);
-      saveHint.textContent = 'Bloque copiado. Ya puedes pegarlo dentro del array de notes.json.';
-    });
-
-    document.getElementById('copyArray').addEventListener('click', () => {
-      const payload = latestGenerated ? [latestGenerated, ...notes] : notes;
-      copyText(JSON.stringify(payload, null, 2));
-      saveHint.textContent = 'JSON completo copiado. Puedes reemplazar todo el contenido de notes.json por este bloque.';
-    });
-
-    updatePreview({});
-    noteDate.value = new Date().toISOString().slice(0, 10);
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
