@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestro rincón</title>
+  <meta name="description" content="Un rincón romántico donde guardar y publicar frases, poemas y letras cada día." />
+  <meta property="og:title" content="Nuestro rincón" />
+  <meta property="og:description" content="Un rincón romántico donde guardar y publicar frases, poemas y letras cada día." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container py-2">
+      <a class="navbar-brand" href="#inicio" aria-label="Ir al inicio">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 20s-7-4.35-9.2-8.48C1.02 8.2 2.76 4.5 6.35 4.5c2.08 0 3.54 1.17 4.33 2.52.79-1.35 2.25-2.52 4.33-2.52 3.59 0 5.33 3.7 3.55 7.02C19 15.65 12 20 12 20Z"/>
+          <path d="M7.5 12.2c1 .2 1.65-.2 2.15-1.15.45 1.45 1.2 2.2 2.35 2.28 1.02.08 1.78-.38 2.55-1.56.38.62.88.93 1.45.93"/>
+        </svg>
+        Nuestro rincón
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#hoy">Frase del día</a></li>
+          <li class="nav-item"><a class="nav-link" href="#archivo">Archivo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#admin">Actualizar</a></li>
+          <li class="nav-item ms-lg-2"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema"><span aria-hidden="true">☾</span></button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <p class="eyebrow">Un detalle que crece cada día</p>
+            <h1>Una web romántica para guardar lo que sientes sin complicarte.</h1>
+            <p class="lead-copy mb-4">Esta página está preparada para que publiques una frase, un poema o una letra cada día. Tendrás una zona bonita para leerlo y otra zona práctica para generar el contenido actualizado y subirlo a GitHub Pages.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn btn-romantic" href="#admin">Escribir hoy</a>
+              <a class="btn btn-soft" href="#archivo">Ver archivo</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-card hero-visual">
+              <div class="quote-frame">
+                <div class="quote-mark">“</div>
+                <p class="quote-text" id="heroQuote">Eres mi lugar favorito incluso cuando el mundo va demasiado deprisa.</p>
+                <p class="mb-0 text-secondary-emphasis" id="heroAuthor">— Para ti, con cariño</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="hoy">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-4">
+            <div class="sticky-info">
+              <p class="eyebrow">Lectura de hoy</p>
+              <h2>Tu mensaje destacado</h2>
+              <p class="section-note">La parte pública muestra la entrada más reciente como protagonista. Debajo puedes dejar un historial con mensajes anteriores para que la página vaya creciendo con el tiempo.</p>
+              <ul class="list-clean mt-4">
+                <li>Bonita en móvil y escritorio.</li>
+                <li>Hecha con Bootstrap 5 para que puedas tocarla fácil.</li>
+                <li>Lista para publicar en GitHub Pages.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <article class="entry-card mb-4" aria-labelledby="fraseTitulo">
+              <div class="entry-date" id="featuredDate">9 de abril de 2026</div>
+              <h2 id="fraseTitulo" class="mb-3">Frase del día</h2>
+              <p class="entry-text" id="featuredText">Eres esa casualidad bonita que convirtió los días normales en algo que siempre quiero recordar.</p>
+              <div class="d-flex flex-wrap gap-2 align-items-center">
+                <span class="entry-tag" id="featuredType">Frase</span>
+                <span class="helper" id="featuredSignature">Publicado por ti</span>
+              </div>
+            </article>
+            <div class="preview-card">
+              <h3 class="mb-3">Cómo funciona</h3>
+              <p class="section-note mb-3">En la sección “Actualizar” escribes el texto y pulsas el botón. La página te genera automáticamente el bloque JSON que debes pegar dentro del archivo. Luego haces commit y GitHub Pages publicará la nueva versión.</p>
+              <div class="status-box">
+                Consejo práctico: si quieres que sea todavía más fácil, puedes editar solo el archivo <strong>notes.json</strong>. El resto del diseño no hace falta tocarlo.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pt-0" id="archivo">
+      <div class="container">
+        <p class="eyebrow">Archivo de recuerdos</p>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+          <div>
+            <h2>Mensajes anteriores</h2>
+            <p class="section-note mb-0">Puedes guardar varias entradas. La primera del listado se muestra como destacada y las demás aparecen aquí debajo.</p>
+          </div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="admin">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-7">
+            <div class="admin-card">
+              <p class="eyebrow">Panel privado sencillo</p>
+              <h2>Actualizar contenido</h2>
+              <p class="section-note">Como GitHub Pages es estático, este panel no guarda datos online por sí solo. Lo que sí hace es prepararte el contenido listo para pegar dentro de <code>notes.json</code> de forma rápida.</p>
+
+              <div class="admin-tabs" role="tablist" aria-label="Opciones del panel">
+                <button class="admin-tab active" data-tab="nuevo" type="button">Nueva entrada</button>
+                <button class="admin-tab" data-tab="json" type="button">Bloque generado</button>
+                <button class="admin-tab" data-tab="guia" type="button">Pasos GitHub</button>
+              </div>
+
+              <div class="admin-panel active" data-panel="nuevo">
+                <form id="noteForm">
+                  <div class="mb-3">
+                    <label class="form-label" for="noteType">Tipo</label>
+                    <select id="noteType" class="form-select">
+                      <option value="Frase">Frase</option>
+                      <option value="Poema">Poema</option>
+                      <option value="Letra">Letra</option>
+                      <option value="Carta">Carta</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="noteDate">Fecha</label>
+                    <input id="noteDate" class="form-control" type="date" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="noteText">Texto</label>
+                    <textarea id="noteText" class="form-control" rows="6" placeholder="Escribe aquí tu frase, poema o letra..." required></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="noteSignature">Firma</label>
+                    <input id="noteSignature" class="form-control" type="text" placeholder="Ejemplo: Para ti, con amor">
+                  </div>
+                  <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <button class="btn btn-romantic" type="submit">Generar entrada</button>
+                    <button class="btn btn-soft" type="button" id="loadSample">Cargar ejemplo</button>
+                  </div>
+                  <p class="helper mt-3 mb-0">El botón no sube nada automáticamente a GitHub, pero sí te deja el objeto preparado para copiar y pegar.</p>
+                </form>
+              </div>
+
+              <div class="admin-panel" data-panel="json">
+                <h3 class="mb-3">Bloque listo para pegar</h3>
+                <p class="helper">Copia este objeto y pégalo al principio del array del archivo <code>notes.json</code>.</p>
+                <pre class="code-box" id="jsonOutput">Todavía no has generado ninguna entrada.</pre>
+                <div class="d-flex flex-wrap gap-3 mt-3">
+                  <button class="btn btn-romantic" type="button" id="copyJson">Copiar bloque</button>
+                  <button class="btn btn-soft" type="button" id="copyArray">Copiar JSON completo</button>
+                </div>
+              </div>
+
+              <div class="admin-panel" data-panel="guia">
+                <h3 class="mb-3">Publicarlo en GitHub Pages</h3>
+                <ol class="mb-0">
+                  <li>Crea un repositorio, por ejemplo <code>nuestro-rincon</code>.</li>
+                  <li>Sube <code>index.html</code>, <code>styles.css</code> y <code>notes.json</code>.</li>
+                  <li>En GitHub, entra en <code>Settings → Pages</code>.</li>
+                  <li>Elige la rama <code>main</code> y la carpeta <code>/root</code>.</li>
+                  <li>Cada día edita <code>notes.json</code>, haz commit y espera la publicación.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="preview-card">
+              <p class="eyebrow">Vista previa</p>
+              <h3>Así quedará la próxima entrada</h3>
+              <div class="entry-date" id="previewDate">Sin fecha</div>
+              <p class="entry-text" id="previewText">Aquí verás la previsualización antes de copiarla.</p>
+              <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+                <span class="entry-tag" id="previewType">Frase</span>
+                <span class="helper" id="previewSignature">Sin firma</span>
+              </div>
+              <div class="status-box mt-4" id="saveHint">Cuando generes la entrada, copia el objeto o el JSON completo y reemplaza el contenido de <code>notes.json</code>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>Hecho con cariño, Bootstrap y una idea bonita.</span>
+      <span>Pensado para GitHub Pages y edición manual sencilla.</span>
+    </div>
+  </footer>
+
+  <script>
+    let notes = [];
+
+    const timeline = document.getElementById('timeline');
+    const featuredDate = document.getElementById('featuredDate');
+    const featuredText = document.getElementById('featuredText');
+    const featuredType = document.getElementById('featuredType');
+    const featuredSignature = document.getElementById('featuredSignature');
+    const heroQuote = document.getElementById('heroQuote');
+    const heroAuthor = document.getElementById('heroAuthor');
+
+    function formatSpanishDate(value) {
+      const date = new Date(value + 'T12:00:00');
+      return new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>\"]/g, (match) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[match]));
+    }
+
+    function renderFeatured() {
+      if (!notes.length) return;
+      const latest = notes[0];
+      featuredDate.textContent = formatSpanishDate(latest.date);
+      featuredText.textContent = latest.text;
+      featuredType.textContent = latest.type;
+      featuredSignature.textContent = latest.signature || 'Publicado por ti';
+      heroQuote.textContent = latest.text;
+      heroAuthor.textContent = '— ' + (latest.signature || 'Para ti, con cariño');
+    }
+
+    function renderTimeline() {
+      if (!notes.length) {
+        timeline.innerHTML = '<article class="entry-card"><h3>Aún no hay entradas</h3><p class="section-note mb-0">Añade tu primera frase en <code>notes.json</code> y aparecerá aquí.</p></article>';
+        return;
+      }
+
+      timeline.innerHTML = notes.map((note, index) => `
+        <article class="entry-card">
+          <div class="entry-date">${formatSpanishDate(note.date)}</div>
+          <h3>${index === 0 ? 'Entrada destacada' : note.type}</h3>
+          <p class="entry-text">${escapeHtml(note.text)}</p>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <span class="entry-tag">${escapeHtml(note.type)}</span>
+            <span class="helper">${escapeHtml(note.signature || 'Publicado por ti')}</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    async function loadNotes() {
+      try {
+        const response = await fetch('./notes.json');
+        notes = await response.json();
+        renderFeatured();
+        renderTimeline();
+      } catch (error) {
+        timeline.innerHTML = '<article class="entry-card"><h3>No se pudo cargar notes.json</h3><p class="section-note mb-0">Comprueba que el archivo esté en la misma carpeta que index.html.</p></article>';
+      }
+    }
+
+    loadNotes();
+
+    const htmlRoot = document.documentElement;
+    const toggle = document.querySelector('[data-theme-toggle]');
+    let currentTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    htmlRoot.setAttribute('data-theme', currentTheme);
+    toggle.innerHTML = currentTheme === 'dark' ? '☀' : '☾';
+    toggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlRoot.setAttribute('data-theme', currentTheme);
+      toggle.innerHTML = currentTheme === 'dark' ? '☀' : '☾';
+      toggle.setAttribute('aria-label', currentTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    });
+
+    document.querySelectorAll('.admin-tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach((btn) => btn.classList.remove('active'));
+        document.querySelectorAll('.admin-panel').forEach((panel) => panel.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+      });
+    });
+
+    const form = document.getElementById('noteForm');
+    const noteType = document.getElementById('noteType');
+    const noteDate = document.getElementById('noteDate');
+    const noteText = document.getElementById('noteText');
+    const noteSignature = document.getElementById('noteSignature');
+    const previewDate = document.getElementById('previewDate');
+    const previewText = document.getElementById('previewText');
+    const previewType = document.getElementById('previewType');
+    const previewSignature = document.getElementById('previewSignature');
+    const jsonOutput = document.getElementById('jsonOutput');
+    const saveHint = document.getElementById('saveHint');
+    let latestGenerated = null;
+
+    function updatePreview(data) {
+      previewDate.textContent = data.date ? formatSpanishDate(data.date) : 'Sin fecha';
+      previewText.textContent = data.text || 'Aquí verás la previsualización antes de copiarla.';
+      previewType.textContent = data.type || 'Frase';
+      previewSignature.textContent = data.signature || 'Sin firma';
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const entry = {
+        date: noteDate.value,
+        type: noteType.value,
+        text: noteText.value.trim(),
+        signature: noteSignature.value.trim() || 'Publicado por ti'
+      };
+      latestGenerated = entry;
+      updatePreview(entry);
+      jsonOutput.textContent = JSON.stringify(entry, null, 2) + ',';
+      saveHint.textContent = 'Copia el objeto o el JSON completo y reemplázalo dentro de notes.json. Después haz commit y push a GitHub.';
+      document.querySelector('[data-tab="json"]').click();
+    });
+
+    document.getElementById('loadSample').addEventListener('click', () => {
+      noteType.value = 'Carta';
+      noteDate.value = new Date().toISOString().slice(0, 10);
+      noteText.value = 'Gracias por hacerme sentir en casa incluso en los días más difíciles. Quiero seguir escribiendo contigo esta historia tan bonita.';
+      noteSignature.value = 'Con todo mi amor';
+      updatePreview({ date: noteDate.value, type: noteType.value, text: noteText.value, signature: noteSignature.value });
+    });
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const area = document.createElement('textarea');
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+      }
+    }
+
+    document.getElementById('copyJson').addEventListener('click', () => {
+      copyText(jsonOutput.textContent);
+      saveHint.textContent = 'Bloque copiado. Ya puedes pegarlo dentro del array de notes.json.';
+    });
+
+    document.getElementById('copyArray').addEventListener('click', () => {
+      const payload = latestGenerated ? [latestGenerated, ...notes] : notes;
+      copyText(JSON.stringify(payload, null, 2));
+      saveHint.textContent = 'JSON completo copiado. Puedes reemplazar todo el contenido de notes.json por este bloque.';
+    });
+
+    updatePreview({});
+    noteDate.value = new Date().toISOString().slice(0, 10);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>
