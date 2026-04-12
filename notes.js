@@ -1,5 +1,11 @@
 const notes = [
   {
+  "date": "2026-04-12",
+  "type": "Frase",
+  "text": "Al pensarte puedo sentir el olor de cuando estoy en tu pecho, en calma, en paz. Ese olor corporal que tienes me trae felicidad, tranquilad",
+  "signature": "Teamo tonta :("
+},
+  {
     "date": "2026-04-11",
     "type": "Letra",
     "text": "I'm so glad I'm living and gonna tell the world I am\nI got me a fine woman and she says that I'm her man\nOne thing that I know for sure gonna give her all the loving\nLike nobody, nobody, nobody, nobody can\n-Out on the tiles - Led Zeppelin",
