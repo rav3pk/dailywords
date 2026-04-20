@@ -1,5 +1,11 @@
 const notes = [
   {
+  "date": "2026-04-20",
+  "type": "Letra",
+  "text": "I’m hypnotized by your name\nI wish this night would never end\nDeftones - Romantic Dreams",
+  "signature": "Teamo miamor"
+},
+  {
   "date": "2026-04-12",
   "type": "Frase",
   "text": "Al pensarte puedo sentir el olor de cuando estoy en tu pecho, en calma, en paz. Ese olor corporal que tienes me trae felicidad, tranquilad",
